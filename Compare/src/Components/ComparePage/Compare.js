@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import Auth from '../../authenticator';
+
+import Item from './Item'
+import Auth from '../../Authenticator'
 
 class Compare extends Component {
     constructor(props){
@@ -17,6 +19,10 @@ class Compare extends Component {
     }
 
     render() {
+        const signoutButtonStyle = {
+            float: 'right'
+        }
+
         const { isAuthenticated } = this.state;
 
         if (!isAuthenticated) {
@@ -26,8 +32,26 @@ class Compare extends Component {
 
         return (
             <div>
-                <label>COMPARE</label>
-                <button onClick={this.signout}>Sign Out</button>
+                <button onClick={this.signout} style={signoutButtonStyle}>Sign Out</button>
+
+                <div>
+                    <div>
+                    <Item itemName="Mason Tapered Rapid Movement Chino"
+                          brand="Banana Republic"
+                          description="I like apples."
+                          price = {"$9.99"}
+                          score = {0}
+                          image={process.env.PUBLIC_URL + 'pic1.jpg'} />
+                    </div>
+                    <div>
+                    <Item itemName="Apple"
+                          brand="Banana Republic"
+                          description="I like apples."
+                          price = {"$9.99"}
+                          score = {0}
+                          image={process.env.PUBLIC_URL + 'pic2.jpg'} />
+                    </div>
+                </div>
             </div>
 
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 
 import TextField from 'material-ui/TextField';
-import Auth from '../../authenticator';
+import Auth from '../../Authenticator';
 
 class Login extends Component {
     constructor(props){
