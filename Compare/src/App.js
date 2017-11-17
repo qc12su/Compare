@@ -5,6 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './Components/LoginPage/Login';
 import Compare from './Components/ComparePage/Compare';
 
+import './App.css';
+
 class App extends Component {
 
   render() {

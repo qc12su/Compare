@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import TextField from 'material-ui/TextField';
 import Auth from '../../Authenticator';
@@ -21,6 +22,12 @@ class Login extends Component {
     }
 
     render() {
+        const loginBoxStyle = {
+            textAlign: 'center',
+            display: 'inline-block',
+            marginTop: '150px'
+        }
+
         const { isAuthenticated } = this.state;
 
         if (isAuthenticated) {
@@ -29,7 +36,7 @@ class Login extends Component {
         }
 
         return (
-            <div>
+            <div style={loginBoxStyle}>
                 <TextField
                     hintText="Username"
                     floatingLabelText="Username"
@@ -44,7 +51,7 @@ class Login extends Component {
                 /><br/>
 
                 <div>
-                    <button onClick={this.login}>Login</button>
+                    <RaisedButton label="Login" primary={true} onClick={this.login}/>
                 </div>
             </div>
         );
