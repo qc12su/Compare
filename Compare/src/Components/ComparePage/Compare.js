@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 import Item from './Item'
 import Auth from '../../Authenticator'
+import '../../App.css';
 
 class Compare extends Component {
     constructor(props){
@@ -20,6 +21,7 @@ class Compare extends Component {
 
     render() {
         const signoutButtonStyle = {
+            marginBottom:'0px',
             float: 'right'
         }
 
@@ -34,21 +36,21 @@ class Compare extends Component {
             <div>
                 <button onClick={this.signout} style={signoutButtonStyle}>Sign Out</button>
 
-                <div>
+                <div className={'CardContainer'}>
                     <div>
                     <Item itemName="Mason Tapered Rapid Movement Chino"
                           brand="Banana Republic"
-                          description="I like apples."
-                          price = {"$9.99"}
-                          score = {0}
+                          //description="I like apples."
+                          price = {"98.00"}
+                          score = {58}
                           image={process.env.PUBLIC_URL + 'pic1.jpg'} />
                     </div>
                     <div>
-                    <Item itemName="Apple"
+                    <Item itemName="Aiden Slim Rapid Movement Chino"
                           brand="Banana Republic"
-                          description="I like apples."
-                          price = {"$9.99"}
-                          score = {0}
+                          //description="I like apples."
+                          price = {"49.00"}
+                          score = {178}
                           image={process.env.PUBLIC_URL + 'pic2.jpg'} />
                     </div>
                 </div>

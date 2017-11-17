@@ -1,55 +1,82 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import Chip from 'material-ui/Chip';
+
+import '../../App.css';
+
+const styles = {
+    chip: {
+        margin: 4,
+    },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        paddingLeft: '10px'
+    }
+}
 
 class Item extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      height: 300,
-      score: 0
-    };
   }
   render() {
-    const { itemName, brand, description, image, price } = this.props;
-    const { height,score } = this.state;
+    const { itemName, brand, description, image, price, score } = this.props;
 
       const cardStyle = {
+          overflow: 'hidden',
           textAlign: 'center',
           float: 'left',
           margin: '25px',
-          height: '800px',
+          height: '550px',
           width: '400px'
       }
 
       const imageStyle = {
           display: 'inline-block',
           margin: '15px',
-          maxWidth: '75%',
-          maxHeight: '75%',
+          maxWidth: '50%',
+          maxHeight: '50%',
           minWidth: '50%',
           minHeight: '50%'
       }
 
-      const textBoxStyle = {
-          backgroundColor: 'light-gray'
+      const cardTitleContainerStyle = {
+          paddingTop:"0px"
       }
 
-
+      const cardTitleStyle = {
+          fontSize: '18px',
+          lineHeight: '20px'
+      }
 
     return (
         <Card style={cardStyle}>
-            <CardMedia>
-                <img src={image} alt="" style={imageStyle}/>
+            <CardMedia style={imageStyle}>
+                <img src={image} alt="" />
             </CardMedia>
-            <div style={textBoxStyle}>
-                <CardTitle title={itemName} subtitle={brand} />
+            <hr/>
+            <div className={"CardTextContainer"}>
+                <CardTitle style={cardTitleContainerStyle}
+                           title={itemName} titleStyle={cardTitleStyle}
+                           subtitle={brand} />
+                <div style={styles.wrapper}>
+                    <Chip style={styles.chip}>
+                        Stretch
+                    </Chip>
+                    <Chip style={styles.chip}>
+                        On Sale
+                    </Chip>
+                    <Chip style={styles.chip}>
+                        Water Resistant
+                    </Chip>
+                </div>
                 <CardText>
-                    {description}
+                    ${price}
                 </CardText>
-                <CardActions>
-                    <FlatButton label="upVote" />
-                    <FlatButton label="downVote" />
+                <CardActions className={"CardActions"}>
+                    <RaisedButton label="Vote" className={"LikeButton"}
+                                  backgroundColor={"transparent"} labelColor={"#000"}/>
                 </CardActions>
             </div>
         </Card>
