@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
+
+import Login from './Components/LoginPage/Login';
+import Compare from './Components/ComparePage/Compare';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <MuiThemeProvider>
+            <Router>
+                <div className="App">
+                    <Switch>
+                        <Route path="/" exact component={Login}/>
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/compare" component={Compare}/>
+                    </Switch>
+                </div>
+            </Router>
+        </MuiThemeProvider>
     );
   }
 }
