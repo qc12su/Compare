@@ -16,39 +16,39 @@ const styles = {
     }
 }
 
+const cardStyle = {
+    overflow: 'hidden',
+    textAlign: 'center',
+    float: 'left',
+    margin: '25px',
+    height: '550px',
+    width: '400px'
+}
+
+const imageStyle = {
+    display: 'inline-block',
+    margin: '15px',
+    maxWidth: '50%',
+    maxHeight: '50%',
+    minWidth: '50%',
+    minHeight: '50%'
+}
+
+const cardTitleContainerStyle = {
+    paddingTop:"0px"
+}
+
+const cardTitleStyle = {
+    fontSize: '18px',
+    lineHeight: '20px'
+}
+
 class Item extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     const { itemName, brand, description, image, price, score } = this.props;
-
-      const cardStyle = {
-          overflow: 'hidden',
-          textAlign: 'center',
-          float: 'left',
-          margin: '25px',
-          height: '550px',
-          width: '400px'
-      }
-
-      const imageStyle = {
-          display: 'inline-block',
-          margin: '15px',
-          maxWidth: '50%',
-          maxHeight: '50%',
-          minWidth: '50%',
-          minHeight: '50%'
-      }
-
-      const cardTitleContainerStyle = {
-          paddingTop:"0px"
-      }
-
-      const cardTitleStyle = {
-          fontSize: '18px',
-          lineHeight: '20px'
-      }
 
     return (
         <Card style={cardStyle}>

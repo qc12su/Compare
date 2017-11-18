@@ -5,6 +5,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Auth from '../../Authenticator';
 
+const loginBoxStyle = {
+    textAlign: 'center',
+    display: 'inline-block',
+    marginTop: '150px'
+}
+
 class Login extends Component {
     constructor(props){
         super(props);
@@ -22,12 +28,6 @@ class Login extends Component {
     }
 
     render() {
-        const loginBoxStyle = {
-            textAlign: 'center',
-            display: 'inline-block',
-            marginTop: '150px'
-        }
-
         const { isAuthenticated } = this.state;
 
         if (isAuthenticated) {
