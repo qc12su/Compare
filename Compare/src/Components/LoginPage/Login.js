@@ -4,6 +4,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import TextField from 'material-ui/TextField';
 import Auth from '../../Authenticator';
+import './Register';
+
+import '../../App.css';
+import Register from "./Register";
 
 const loginBoxStyle = {
     textAlign: 'center',
@@ -51,7 +55,9 @@ class Login extends Component {
                 /><br/>
 
                 <div>
-                    <RaisedButton label="Login" primary={true} onClick={this.login}/>
+                    <RaisedButton className={"LoginPageButton"}
+                                  label="Login" primary={true} onClick={this.login}/>
+                    <Register></Register>
                 </div>
             </div>
         );

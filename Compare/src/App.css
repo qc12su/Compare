@@ -47,6 +47,10 @@ hr {
     font-family: sans-serif;
 }
 
+.LoginPageButton{
+    margin: 5px;
+}
+
 /*
 .DislikeButton{
     text-transform: uppercase;
