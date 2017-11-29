@@ -10,8 +10,7 @@ const rowStyle = {
 }
 
 function addUser(data) {
-                console.log("called add User");
-                 return fetch('http://localhost:3000/addUser', {
+                 return fetch('/addUser', {
                      method: 'POST',
                      mode: 'CORS',
                      body: JSON.stringify(data),
