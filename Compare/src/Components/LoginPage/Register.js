@@ -9,7 +9,7 @@ const rowStyle = {
      verticalAlign: "center"
 }
 
-function addUser(data) {
+/*function addUser(data) {
                  return fetch('/addUser', {
                      method: 'POST',
                      mode: 'CORS',
@@ -21,7 +21,7 @@ function addUser(data) {
                      return res;
                  }).catch(err => err);
 }
-
+*/
 export default class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -50,8 +50,23 @@ export default class Register extends React.Component {
             password: this.state.password,
             email: this.state.email
         }
-        addUser(data);
-        alert('Hello ' + data.username + ', your password is: ' + data.password + ' and  your email is ' + data.email);
+
+        //fetch('/addUser?username=h&password=2&email=2',{
+        fetch('http://localhost:3001/addUser',{
+            method: "post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            body : JSON.stringify(data)
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        alert(JSON.stringify(data));
         event.preventDefault();
     }
     handleOpen = () => {
@@ -86,25 +101,25 @@ export default class Register extends React.Component {
                      <form>
                         <Grid fluid ={true}>
                             <Row style ={rowStyle}>
-                                <div class = "col-md-2 col-md-offset-3">
+                                <div className = "col-md-2 col-md-offset-3">
                                 Username: </div>
-                                <div class="col-md-2">
+                                <div className="col-md-2">
                                     <input path = "username" value={this.state.username} onChange= {this.handleChange('username')} />
                                 </div>
                             </Row>
                             <Row style ={rowStyle}>
-                                <div class="col-md-2 col-md-offset-3">
+                                <div className="col-md-2 col-md-offset-3">
                                 Password: </div>
-                                <div class="col-md-2">
+                                <div className="col-md-2">
                                     <input type="password" path = "password"
                                     value={this.state.password} 
                                     onChange= {this.handleChange('password')}/>
                                 </div>
                             </Row>
                             <Row style ={rowStyle}>
-                                <div class="col-md-2 col-md-offset-3">
+                                <div className="col-md-2 col-md-offset-3">
                                 Email: </div>
-                                <div class="col-md-2">
+                                <div className="col-md-2">
                                     <input
                                     path = "email"
                                     value={this.state.email} 
