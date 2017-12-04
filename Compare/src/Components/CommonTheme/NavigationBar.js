@@ -15,7 +15,7 @@ export default class navBar extends React.Component {
                     <Nav pullRight>
                         <NavItem eventKey={1} href="#"><Glyphicon glyph="fire"/></NavItem>
                         <NavItem eventKey={2} href="#"><Glyphicon glyph="arrow-up"/></NavItem>
-                        <NavItem eventKey={2} href="#"><Glyphicon glyph="user"/></NavItem>
+                        <NavItem eventKey={2} href="/userprofile"><Glyphicon glyph="user"/></NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

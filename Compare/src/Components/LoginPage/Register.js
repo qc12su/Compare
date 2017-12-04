@@ -9,19 +9,6 @@ const rowStyle = {
      verticalAlign: "center"
 }
 
-/*function addUser(data) {
-                 return fetch('/addUser', {
-                     method: 'POST',
-                     mode: 'CORS',
-                     body: JSON.stringify(data),
-                     headers: {
-                         'Content-Type': 'application/json'
-                     }
-                 }).then(res => {
-                     return res;
-                 }).catch(err => err);
-}
-*/
 export default class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -46,19 +33,18 @@ export default class Register extends React.Component {
 
     handleSubmit(event) {
         var data = {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email
+            "username": this.state.username,
+            "password": this.state.password,
+            "email": this.state.email
         }
 
-        //fetch('/addUser?username=h&password=2&email=2',{
-        fetch('http://localhost:3001/addUser',{
+        fetch('http://localhost:3000/addUser',{
             method: "post",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-            body : JSON.stringify(data)
+            body: JSON.stringify(data)
         })
         .then(function (response) {
             console.log(response);
@@ -66,7 +52,6 @@ export default class Register extends React.Component {
         .catch(function (error) {
             console.log(error);
         });
-        alert(JSON.stringify(data));
         event.preventDefault();
     }
     handleOpen = () => {
