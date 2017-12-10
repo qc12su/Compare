@@ -11,8 +11,8 @@ class Profile extends Component {
 
     makeRequest(){
 
-        var userid = 1;
-        const url = 'http://localhost:3001/getUser?userid=' + userid;
+        var userid = "test";
+        const url = 'http://localhost:3000/userAPI/users/' + userid;
         alert(url + " request");
         fetch(url, {
             mode: 'cors',
@@ -21,7 +21,7 @@ class Profile extends Component {
                 "Access-Control-Allow-Headers": "Content-Type"
             }
         })
-        .then((response) => response.json())
+        .then((response) => response.json)
         .then((data) => {
             console.log(data.username);
             this.setState({

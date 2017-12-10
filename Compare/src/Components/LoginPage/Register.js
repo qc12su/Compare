@@ -16,7 +16,9 @@ export default class Register extends React.Component {
           open: false,
           username: '', 
           password: '', 
-          email: ''
+          email: '',
+          usernameError: '',
+          emailError: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -38,16 +40,29 @@ export default class Register extends React.Component {
             "email": this.state.email
         }
 
-        fetch('http://localhost:3000/addUser',{
+        fetch('http://localhost:3000/userAPI/users',{
             method: "post",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
+            mode: 'cors',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type",
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(data)
         })
-        .then(function (response) {
-            console.log(response);
+        .then((response) =>{
+            console.log(response.status);
+            if (response.status == 208){
+                this.setState({
+                    usernameError: "Duplicate username."
+                })
+            }
+            if (response.status == 226){
+                this.setState({
+                    emailError: "Duplicate email."
+                })
+            }
         })
         .catch(function (error) {
             console.log(error);
@@ -78,6 +93,10 @@ export default class Register extends React.Component {
             />,
         ];
 
+        var redText = {
+            color: 'red'
+        };
+
         return (
             <div>
                 <RaisedButton label="Register" className={"LoginPageButton"}
@@ -90,6 +109,7 @@ export default class Register extends React.Component {
                                 Username: </div>
                                 <div className="col-md-2">
                                     <input path = "username" value={this.state.username} onChange= {this.handleChange('username')} />
+                                    <div style = {redText}>{this.state.usernameError}</div>
                                 </div>
                             </Row>
                             <Row style ={rowStyle}>
@@ -109,6 +129,7 @@ export default class Register extends React.Component {
                                     path = "email"
                                     value={this.state.email} 
                                     onChange= {this.handleChange('email')} />
+                                    <div style = {redText}>{this.state.emailError}</div>
                                 </div>
                             </Row>
                         </Grid>

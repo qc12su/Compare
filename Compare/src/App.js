@@ -14,18 +14,20 @@ class App extends Component {
   render() {
       return (
         <MuiThemeProvider>
-            <NavigationBar/>
-            <Router>
-                <div className="App">
-                    <Switch>
-                        <Route path="/" exact component={Login}/>
-                        <Route exact path="/login" component={Login} />
-                         <Route exact path="/userprofile" component={Profile}/>
-                        /*user feed*/
-                        <Route exact path="/compare" component={Compare}/>
-                    </Switch>
-                </div>
-            </Router>
+            <div>
+                <NavigationBar/>
+                <Router>
+                    <div className="App">
+                        <Switch>
+                            <Route path="/" exact component={Login}/>
+                            <Route exact path="/login" component={Login} />
+                             <Route exact path="/userprofile" component={Profile}/>
+                            /*user feed*/
+                            <Route exact path="/compare" component={Compare}/>
+                        </Switch>
+                    </div>
+                </Router>
+            </div>
         </MuiThemeProvider>
     );
   }
